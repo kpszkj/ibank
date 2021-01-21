@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/layer/layer.js"></script>
+		<script type="text/javascript">
+			Date.prototype.format = function(fmt) {
+				var o = {
+					"M+": this.getMonth() + 1, //月份
+					"d+": this.getDate(), //日
+					"h+": this.getHours(), //小时
+					"m+": this.getMinutes(), //分
+					"s+": this.getSeconds(), //秒
+					"q+": Math.floor((this.getMonth() + 3) / 3), //季度
+					"S": this.getMilliseconds() //毫秒
+				};
+				if (/(y+)/.test(fmt)) {
+					fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+				}
+				for (var k in o) {
+					if (new RegExp("(" + k + ")").test(fmt)) {
+						fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+					}
+				}
+				return fmt;
+			}
+
+			function stringToDate(str) {
+
+				var tempStrs = str.split(" ");
+
+				var dateStrs = tempStrs[0].split("-");
+
+				var year = parseInt(dateStrs[0], 10);
+
+				var month = parseInt(dateStrs[1], 10) - 1;
+
+				var day = parseInt(dateStrs[2], 10);
+
+				var timeStrs = tempStrs[1].split(":");
+
+				var hour = parseInt(timeStrs[0], 10);
+
+				var minute = parseInt(timeStrs[1], 10);
+
+				var second = parseInt(timeStrs[2], 10);
+
+				var date = new Date(year, month, day, hour, minute, second);
+
+				return date;
+
+			}
+
+			/* var now = new Date().format("yyyy-MM-dd hh:mm:ss"); */
+			document.addEventListener('plusready', function() {
+				//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。")
+				/* plus.storage.clearAsync(function() {
+					console.log("clearAsync success");
+				}, function(e) {
+					console.log("clearAsync failed: " + JSON.stringify(e));
+				}); */
+				var time = new Date().format("yyyy-MM-dd hh:mm:ss");
+
+				var time1 = stringToDate('2021-01-21 15:22:00')
+				var time2 = stringToDate('2020-10-30 03:00:01')
+				
+				if (plus.navigator.hasNotchInScreen()) {
+					plus.navigator.setFullscreen(false);
+					plus.navigator.setStatusBarBackground("#cca4e3");
+				}
+				//alert(time1 > new Date());
+			});
+
+			// 修改或添加键值(key-value)对数据到应用数据存储中
+			function setStorage(num) {
+				plus.storage.setItem("test", num + '');
+				plus.storage.setItem("time", new Date() + '');
+				
+			}
+
+			// 获取存储的键值
+			function getStorage() {
+				var test = plus.storage.getItem("test")
+				//alert(plus.storage.getItem("test"));
+				layer.msg(test);
+				//alert(plus.storage.getLength());
+			}
+		</script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+
+			.main {
+				//border: 1px solid red;
+				width: 100%;
+			}
+
+			.storage {
+				margin-top: 50%;
+			}
+
+			.storage span {
+				//border: 1px solid red;
+				display: inline-block;
+				width: 27%;
+				padding: 5px 10px;
+				font-size: 20px;
+				background-color: #DA2731;
+				color: #FFFFFF;
+				text-align: center;
+
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<div class="storage">
+				<span onclick="setStorage('1')">存储数字1</span>
+				<span onclick="setStorage('2')">存储数字2</span>
+				<span onclick="getStorage()">显示数值</span>
+			</div>
+		</div>
+	</body>
+</html>
