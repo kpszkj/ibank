@@ -6,10 +6,11 @@
 		<title></title>
 
 		<link rel="stylesheet" href="css/app.css">
-		<link rel="stylesheet" href="css/init.css">
+		<link rel="stylesheet" href="css/index.css">
 
 		<script src="js/jquery.min.js"></script>
 		<script src="js/layer/layer.js"></script>
+		<script src="js/config/common.js"></script>
 		<script src="js/app.js"></script>
 	</head>
 	<body>
@@ -25,28 +26,81 @@
 
 			<div class="main" id="main">
 
-				<div class="form">
+				<div class="session">
+					<div class="title">
+						余额
+					</div>
+					<div class="des">
+						1000
+					</div>
+				</div>
 
-					<div>
-						<!-- <span>用户名</span> -->
-						<input type="text" placeholder="用户名" />
+				<div class="session">
+					<div class="title">
+						余额
+					</div>
+					<div class="des">
+						1000
+					</div>
+				</div>
+
+				<div class="session">
+
+					<div class="title">
+						操作
 					</div>
 
-					<div>
-						<!-- <span>用户名</span> -->
-						<input type="password" placeholder="密码" />
+					<div class="action" onclick="openView('recordAdd.html','pop-in')">
+						<img src="img/a1.png">
+						<div>如胶似漆</div>
 					</div>
 
-					<div class="login">开始风花雪月之旅</div>
-					<div class="loginLabel">
-						技术支持：李真帆
-						&nbsp;&nbsp;
-						意见支持：李萍
+					<div class="action" onclick="openView('recordAdd.html','pop-in')">
+						<img src="img/a2.png">
+						<div>无言以对</div>
+					</div>
+
+					<div class="action">
+						<img src="img/a3.png">
+						<div>心灵鸡汤</div>
+					</div>
+
+					<div class="action">
+						<img src="img/a4.png">
+						<div>敬请期待</div>
 					</div>
 
 				</div>
 
 			</div>
 
+			<div class="foot">
+				<div class="nav">
+
+					<div class="active" onclick="location.href='index.html'">
+						<img src="img/sy1.jpg" />
+						<div>首页</div>
+					</div>
+
+					<div class="item" onclick="location.href='record.html'">
+						<img src="img/zd.jpg" />
+						<div>账单</div>
+					</div>
+
+					<div class="item" onclick="location.href='me.html'">
+						<img src="img/wd.jpg" />
+						<div>我的</div>
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		
+		
+		<div class="load">
+			<img src="img/load1.gif" />
+		</div>
 	</body>
 </html>
