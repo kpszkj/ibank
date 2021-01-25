@@ -38,7 +38,8 @@ button {
 
 	text-align: center;
 }
-.head img{
+
+.head img {
 	float: left;
 	margin: 8px 0 0 10px;
 	width: 24px;
@@ -57,7 +58,6 @@ button {
 	z-index: 9999;
 } */
 .load img {
-	display: none;
 	position: fixed;
 	top: 50%;
 	left: 50%;

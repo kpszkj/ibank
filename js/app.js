@@ -1,6 +1,7 @@
-/* 
-Date 
- */
+var baseUrl = "http://192.168.0.110:8080/fhxy/";
+//var baseUrl = "http://101.201.149.195:1314/";
+//Date
+
 //时间格式化    时间-->字符串
 Date.prototype.format = function(fmt) {
 	var o = {
@@ -22,6 +23,7 @@ Date.prototype.format = function(fmt) {
 	}
 	return fmt;
 }
+
 //时间格式化    字符串-->时间
 function stringToDate(str) {
 	var tempStrs = str.split(" ");
@@ -37,61 +39,36 @@ function stringToDate(str) {
 	return date;
 }
 
+//Date
 
 
 // 修改或添加键值(key-value)对数据到应用数据存储中
-function setStorage(num) {
-	plus.storage.setItem("test", num + '');
-	plus.storage.setItem("time", new Date() + '');
-
-}
-
+/*function setStorage(num) {
+    plus.storage.setItem("test", num + '');
+    plus.storage.setItem("time", new Date() + '');
+}*/
 // 获取存储的键值
-function getStorage() {
-	var test = plus.storage.getItem("test")
-	//alert(plus.storage.getItem("test"));
-	layer.msg(test);
-	//alert(plus.storage.getLength());
-}
+/*function getStorage() {
+    var test = plus.storage.getItem("test");
+    //alert(plus.storage.getItem("test"));
+    layer.msg(test);
+    //alert(plus.storage.getLength());
+}*/
 
 /* 初始化 */
-document.addEventListener('plusready', function() {
-	//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。")
-	var time = new Date().format("yyyy-MM-dd hh:mm:ss");
+/*document.addEventListener('plusready', function () {
+    //console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。")
+    var time = new Date().format("yyyy-MM-dd hh:mm:ss");
 
-	var time1 = stringToDate('2021-01-21 15:22:00')
-	var time2 = stringToDate('2020-10-30 03:00:01')
+    var time1 = stringToDate('2021-01-21 15:22:00')
+    var time2 = stringToDate('2020-10-30 03:00:01')
 
-	if (plus.navigator.hasNotchInScreen()) {
-		plus.navigator.setFullscreen(false);
-		plus.navigator.setStatusBarBackground("#D9579B");
-	}
-	//alert(time1 > new Date());
-});
-
-
-/* app基本配置 */
-
-// 配置数据访问基本路径
-// var baseUrl = "http://bacim.kpszkj.cn/";
-// var baseUrl = "http://localhost:8080/cim/";
-// var baseUrl = "http://192.168.0.110:8080/cim/";
-// var baseUrl = "http://app.fqxwhy.cn/";
-//var baseUrl = "http://bacim.kpszkj.cn/";
-
-// 配置当前文化馆标识
-//var cid = 2;
-//配置
-
-/* app基本配置结束 */
-
-/* 配置webview */
-
-var wv;
-
-function initWebView() {
-	wv = plus.webview;
-}
+    if (plus.navigator.hasNotchInScreen()) {
+        plus.navigator.setFullscreen(false);
+        plus.navigator.setStatusBarBackground("#D9579B");
+    }
+    //alert(time1 > new Date());
+});*/
 
 //打开新页面
 function openView(url, type) {
@@ -106,41 +83,29 @@ function openView(url, type) {
 //返回上一级页面
 function back() {
 	ws = plus.webview.currentWebview();
-	//ws.close('pop-out', 500, null);
 	ws.close();
 }
 
-// 扩展API加载完毕，现在可以正常调用扩展API 
-function plusReady() {
-	initWebView();
-	if (plus.navigator.hasNotchInScreen()) {
-		plus.navigator.setFullscreen(false);
-		plus.navigator.setStatusBarBackground("#c4aa82");
-	}
-	ws = plus.webview.currentWebview();
-	setTimeout(ws.show(), 500); //延迟创建子窗口避免影响窗口动画
-	//监听返回键
-	plus.key.addEventListener('backbutton', function() {
-		back();
-	}, false);
-}
-
-// 判断扩展API是否准备，否则监听plusready事件
-function initPlus() {
-	//取消浏览器的所有事件，使得active的样式在手机上正常生效
-	document.addEventListener('touchstart', function() {
-		return false;
-	}, true);
-	// 禁止选择
-	document.oncontextmenu = function() {
-		return false;
-	};
-	if (window.plus) {
-		plusReady();
+function getToken() {
+	var token = plus.storage.getItem("token");
+	if (isEmpty(token)) {
+		return null;
 	} else {
-		document.addEventListener('plusready', plusReady, false);
+		return token;
 	}
 }
 
-/* 配置webview结束 */
+function load() {
+	$("#load").show();
+	$("#main").hide();
+}
 
+function loadDetail() {
+	$("#load").show();
+}
+
+function closeLoad() {
+	$("#load").hide();
+	$("#all").show();
+	$("#main").show();
+}

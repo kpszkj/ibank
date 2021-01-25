@@ -12,8 +12,16 @@
 		<script src="js/layer/layer.js"></script>
 		<script src="js/config/common.js"></script>
 		<script src="js/app.js"></script>
+
+		<!--angularjs组件-->
+		<script src="plugins/angularjs/angular.min.js"></script>
+		<!--引入baseApp-->
+		<script src="js/angular/app/baseApp.js"></script>
+		<script src="js/angular/app/baseController.js"></script>
+		<script src="js/angular/buser/buserService.js"></script>
+		<script src="js/angular/buser/buserController.js"></script>
 	</head>
-	<body>
+	<body ng-app="fhxy" ng-controller="buserController" ng-init="init()">
 
 		<div id="all">
 
@@ -28,19 +36,19 @@
 
 				<div class="session">
 					<div class="title">
-						余额
+						我的余额
 					</div>
 					<div class="des">
-						1000
+						{{entity.score}}
 					</div>
 				</div>
 
 				<div class="session">
 					<div class="title">
-						余额
+						他的余额
 					</div>
 					<div class="des">
-						1000
+						{{cEntity.score}}
 					</div>
 				</div>
 
@@ -65,7 +73,7 @@
 						<div>心灵鸡汤</div>
 					</div>
 
-					<div class="action">
+					<div class="action" ng-click='logout()'>
 						<img src="img/a4.png">
 						<div>敬请期待</div>
 					</div>
@@ -91,15 +99,15 @@
 						<img src="img/wd.jpg" />
 						<div>我的</div>
 					</div>
-					
+
 				</div>
-				
+
 			</div>
-			
+
 		</div>
-		
-		
-		<div class="load">
+
+
+		<div class="load" id="load">
 			<img src="img/load1.gif" />
 		</div>
 	</body>
