@@ -6,11 +6,10 @@ app.controller('recordController', function($scope, $controller, recordService) 
 	}); //继承
 
 	$scope.entity = {};
-	$scope.cEntity = {};
 
 	// 扩展API加载完毕，现在可以正常调用扩展API
 	function plusReady() {
-		loadDetail();
+		load();
 		if (plus.navigator.hasNotchInScreen()) {
 			plus.navigator.setFullscreen(false);
 			plus.navigator.setStatusBarBackground("#D9579B");
@@ -21,7 +20,9 @@ app.controller('recordController', function($scope, $controller, recordService) 
 		plus.key.addEventListener('backbutton', function() {
 			back();
 		}, false);
-		$scope.search(1, 10);
+		var id = plus.storage.getItem("recordId");
+		$scope.findOne(id);
+		plus.storage.removeItem("recordId");
 	}
 
 	// 判断扩展API是否准备，否则监听plusready事件
@@ -50,11 +51,6 @@ app.controller('recordController', function($scope, $controller, recordService) 
 			})
 		})
 		closeLoad();
-	}
-	
-	$scope.toDetail = function(id) {
-		plus.storage.setItem("recordId",id);
-		openView("recordDetail.html","pop-up");
 	}
 
 	//读取列表数据绑定到表单中

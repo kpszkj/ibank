@@ -6,7 +6,7 @@
 		<title></title>
 
 		<link rel="stylesheet" href="css/app.css">
-		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="css/record.css">
 
 		<script src="js/jquery.min.js"></script>
 		<script src="js/layer/layer.js"></script>
@@ -20,29 +20,74 @@
 		<script src="js/angular/app/baseController.js"></script>
 		<script src="js/angular/record/recordService.js"></script>
 		<script src="js/angular/record/recordController.js"></script>
-		
+
 	</head>
-	<body>
+	<body ng-app="fhxy" ng-controller="recordController" ng-init="init()">
 
 		<div id="all">
 
 			<!-- 头部 -->
 			<div class="head">
-				<span class="title">首页</span>
+				<span class="title">账单</span>
 			</div>
 
 			<div style="height: 40px;"></div>
 
 			<div class="main" id="main">
-
-				<div class="title">
-					余额
-				</div>
-				<div class="des">
-					我的余额：100元
+				
+				<div class="session" ng-repeat="pojo in list" ng-click="toDetail(pojo.id)">
+				
+					<div>
+				
+						<div class="scoreDelete" ng-if="pojo.type==0">
+							-{{pojo.score}}
+						</div>
+						<div class="scoreAdd" ng-if="pojo.type==1">
+							+{{pojo.score}}
+						</div>
+				
+						<div class="infos">
+							<div class="name" ng-if="equals(pojo.token1,searchEntity.token1)">
+								{{name}}
+							</div>
+							<div class="name" ng-if="equals(pojo.token1,searchEntity.token1)==false">
+								{{cname}}
+							</div>
+				
+							<div class="info" ng-if="equals(pojo.token1,searchEntity.token1)">
+								{{cname}}说：{{pojo.info}}
+							</div>
+							<div class="info" ng-if="equals(pojo.token1,searchEntity.token1)==false">
+								{{name}}说：{{pojo.info}}
+							</div>
+				
+						</div>
+				
+						<hr style="background-color: #C2C2C2;" />
+				
+						<div class="tips" ng-if="equals(pojo.token1,searchEntity.token1)">
+							<span ng-if="pojo.status1==0" class="redTip">信息未读</span>
+							<span ng-if="pojo.status1==1" class="greenTip">信息已读</span>
+							<span ng-if="pojo.status2==0" class="redTip">未回复</span>
+							<span ng-if="pojo.status2==1" class="greyTip">已回复</span>
+							<span ng-if="pojo.status2==2" class="greenTip">回复已读</span>
+						</div>
+				
+						<div class="tips" ng-if="equals(pojo.token1,searchEntity.token1)==false">
+							<span ng-if="pojo.status1==0" class="redTip">对方未读</span>
+							<span ng-if="pojo.status1==1" class="greenTip">对方已读</span>
+							<span ng-if="pojo.status2==0" class="redTip">未回复</span>
+							<span ng-if="pojo.status2==1" class="greyTip">回复未读</span>
+							<span ng-if="pojo.status2==2" class="greenTip">回复已读</span>
+						</div>
+				
+					</div>
+				
 				</div>
 
 			</div>
+
+
 			<div class="foot">
 				<div class="nav">
 					<div class="item" onclick="location.href='index.html'">
@@ -57,8 +102,13 @@
 						<img src="img/wd.jpg" />
 						<div>我的</div>
 					</div>
-					</ul>
 				</div>
+			</div>
 
+		</div>
+		<div class="load" id="load">
+			<img src="img/load1.gif" />
+		</div>
+		</div>
 	</body>
 </html>

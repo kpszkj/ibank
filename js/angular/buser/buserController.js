@@ -10,6 +10,7 @@ app.controller('buserController', function($scope, $controller, buserService) {
 
 	// 扩展API加载完毕，现在可以正常调用扩展API
 	function plusReady() {
+		loadDetail();
 		if (plus.navigator.hasNotchInScreen()) {
 			plus.navigator.setFullscreen(false);
 			plus.navigator.setStatusBarBackground("#D9579B");
@@ -44,8 +45,10 @@ app.controller('buserController', function($scope, $controller, buserService) {
 		$scope.entity.token = plus.storage.getItem("token");
 		buserService.findOneByToken($scope.entity.token).success(function(rs) {
 			$scope.entity = rs;
+			plus.storage.setItem("name", $scope.entity.nickname);
 			buserService.findOne($scope.entity.cphone).success(function(rs2) {
 				$scope.cEntity = rs2;
+				plus.storage.setItem("cname", $scope.cEntity.nickname);
 			})
 		})
 		closeLoad();
