@@ -6,31 +6,67 @@
 		<title></title>
 
 		<link rel="stylesheet" href="css/app.css">
-		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="css/me.css">
 
 		<script src="js/jquery.min.js"></script>
 		<script src="js/layer/layer.js"></script>
+		<script src="js/config/common.js"></script>
 		<script src="js/app.js"></script>
+
+		<!--angularjs组件-->
+		<script src="plugins/angularjs/angular.min.js"></script>
+		<!--引入baseApp-->
+		<script src="js/angular/app/baseApp.js"></script>
+		<script src="js/angular/app/baseController.js"></script>
+		<script src="js/angular/buser/buserService.js"></script>
+		<script src="js/angular/buser/meController.js"></script>
 	</head>
-	<body>
+
+	<body ng-app="fhxy" ng-controller="meController" ng-init="init()">
 
 		<div id="all">
 
 			<!-- 头部 -->
 			<div class="head">
-				<span class="title">首页</span>
+				<span class="title">个人信息</span>
 			</div>
 
 			<div style="height: 40px;"></div>
 
-			<div class="main" id="main">
+			<div class="main" id="main" style="display: none;">
 
-				<div class="title">
-					余额
+				<div class="session" style="margin-top: 50px;">
+					<img src="{{entity.headportrait}}" class="img" onclick="openView('buserEditor.html','pop-in')"/>
+					<div class="name">
+						{{entity.nickname}}
+					</div>
+					<div class="title">
+						丨余额
+					</div>
+					<div style="text-align: center;">
+						<div class="des">
+							{{entity.score}}
+						</div>
+					</div>
+					<div class="title">
+						丨伴侣
+					</div>
+					<div style="text-align: center;">
+						<div class="des cdes" ng-click="ta()">
+							{{cEntity.nickname}}
+						</div>
+					</div>
+
+					<div class="title">
+						丨个人宣言
+					</div>
+					<div class="introduction">
+						{{entity.declaration}}
+					</div>
+
 				</div>
-				<div class="des">
-					我的余额：100元
-				</div>
+
+
 
 			</div>
 
@@ -51,6 +87,10 @@
 				</div>
 			</div>
 
+		</div>
+		
+		<div class="load" id="load">
+			<img src="img/load1.gif" />
 		</div>
 	</body>
 </html>

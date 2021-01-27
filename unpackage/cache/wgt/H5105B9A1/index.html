@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="css/index.css">
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/layer/layer.js"></script>
+		<script src="js/config/common.js"></script>
+		<script src="js/app.js"></script>
+
+		<!--angularjs组件-->
+		<script src="plugins/angularjs/angular.min.js"></script>
+		<!--引入baseApp-->
+		<script src="js/angular/app/baseApp.js"></script>
+		<script src="js/angular/app/baseController.js"></script>
+		<script src="js/angular/buser/buserService.js"></script>
+		<script src="js/angular/buser/buserController.js"></script>
+	</head>
+	<body ng-app="fhxy" ng-controller="buserController" ng-init="init()">
+
+		<div id="all">
+
+			<!-- 头部 -->
+			<div class="head">
+				<span class="title">首页</span>
+			</div>
+
+			<div style="height: 40px;"></div>
+
+			<div class="main" id="main" style="display: none;">
+
+				<div class="session">
+					<div class="title">
+						爱情币
+					</div>
+					<div class="des">
+						{{entity.nickname}}：{{entity.score}}
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						{{cEntity.nickname}}：{{cEntity.score}}
+						<!-- <br />
+						总余额：{{entity.score+cEntity.score}} -->
+					</div>
+				</div>
+
+				<div class="session">
+					<div class="title">
+						感情状态
+					</div>
+
+					<div class="des" ng-if="entity.score+cEntity.score<0">
+						lv.0&nbsp;&nbsp;&nbsp;&nbsp;视若路人、不如分手
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=0&&entity.score+cEntity.score<1000">
+						lv.1&nbsp;&nbsp;&nbsp;&nbsp;两小无猜
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=1000&&entity.score+cEntity.score<2000">
+						lv.2&nbsp;&nbsp;&nbsp;&nbsp;心有灵犀
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=2000&&entity.score+cEntity.score<3000">
+						lv.3&nbsp;&nbsp;&nbsp;&nbsp;亲密无间
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=3000&&entity.score+cEntity.score<4000">
+						lv.4&nbsp;&nbsp;&nbsp;&nbsp;卿卿我我
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=4000&&entity.score+cEntity.score<5000">
+						lv.5&nbsp;&nbsp;&nbsp;&nbsp;如胶似漆
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=5000&&entity.score+cEntity.score<6000">
+						lv.6&nbsp;&nbsp;&nbsp;&nbsp;心心相印
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=6000&&entity.score+cEntity.score<7000">
+						lv.7&nbsp;&nbsp;&nbsp;&nbsp;情比金坚
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=7000&&entity.score+cEntity.score<8000">
+						lv.8&nbsp;&nbsp;&nbsp;&nbsp;天长地久
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=8000&&entity.score+cEntity.score<9000">
+						lv.9&nbsp;&nbsp;&nbsp;&nbsp;比翼齐飞
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=9000&&entity.score+cEntity.score<10000">
+						lv.10&nbsp;&nbsp;&nbsp;&nbsp;矢志不渝
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=10000">
+						lv.MAX&nbsp;&nbsp;&nbsp;&nbsp;执子之手、与子偕老、速速结婚
+					</div>
+
+
+				</div>
+
+				<div class="session">
+
+					<div class="title">
+						操作
+					</div>
+
+					<div class="action" onclick="openView('recordAdd.html','pop-in')">
+						<img src="img/a1.png">
+						<div>如胶似漆</div>
+					</div>
+
+					<div class="action" onclick="openView('recordDelete.html','pop-in')">
+						<img src="img/a2.png">
+						<div>无言以对</div>
+					</div>
+
+					<div class="action">
+						<img src="img/a3.png">
+						<div>心灵鸡汤</div>
+					</div>
+
+					<div class="action">
+						<img src="img/a4.png">
+						<div>敬请期待</div>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="foot">
+				<div class="nav">
+
+					<div class="active" onclick="location.href='index.html'">
+						<img src="img/sy1.jpg" />
+						<div>首页</div>
+					</div>
+
+					<div class="item" onclick="location.href='record.html'">
+						<img src="img/zd.jpg" />
+						<div>账单</div>
+					</div>
+
+					<div class="item" onclick="location.href='me.html'">
+						<img src="img/wd.jpg" />
+						<div>我的</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<div class="load" id="load">
+			<img src="img/load1.gif" />
+		</div>
+
+	</body>
+</html>

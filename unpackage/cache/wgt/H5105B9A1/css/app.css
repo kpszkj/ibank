@@ -1,0 +1,131 @@
+/* 取消网页样式 */
+input,
+button,
+select,
+textarea {
+	outline: none;
+}
+
+/* 取消链接按钮点击时默认背景 */
+a,
+button {
+	-webkit-tap-highlight-color: transparent;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+.head {
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+
+	background: #D9579B;
+	//background-image: url(../img/head.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+
+	font-size: 20px;
+	font-weight: bold;
+	color: #FFFFFF;
+
+	text-align: center;
+}
+
+.head img {
+	float: left;
+	margin: 8px 0 0 10px;
+	width: 24px;
+}
+
+/* .load img{
+
+	//display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 280px;
+	height: 210px;
+	margin-left: -140px;
+	margin-top: -105px;
+	z-index: 9999;
+} */
+.load img {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 60px;
+	height: 60px;
+	margin-left: -30px;
+	margin-top: -30px;
+	z-index: 9999;
+}
+
+
+
+
+.foot {
+	width: 100%;
+	height: 70px;
+	overflow: hidden;
+	//border: 1px solid red;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	background: #F7F7FD;
+}
+
+.foot .nav {
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+.foot .nav img {
+	margin-top: 10px;
+	//border: 1px solid #FFFFFF;
+	display: inline-block;
+	width: 30px;
+}
+
+.foot .nav .item {
+	padding: 0;
+	margin-left: -4px;
+	margin-bottom: 0px;
+	//border: 1px solid #FFFFFF;
+	height: 30px;
+	display: inline-block;
+	width: 120px;
+	text-align: center;
+	line-height: 20px;
+	font-size: 16px;
+	font-weight: bold;
+	//background: #D9579B;
+	//color: #FFFFFF;
+}
+
+.foot .nav .active {
+	padding: 0;
+	margin-left: -4px;
+	margin-bottom: 0px;
+	//border: 1px solid #FFFFFF;
+	height: 30px;
+	display: inline-block;
+	width: 120px;
+	text-align: center;
+	line-height: 20px;
+	font-size: 16px;
+	font-weight: bold;
+	//background: #D9579B;
+	color: #CD1616;
+}

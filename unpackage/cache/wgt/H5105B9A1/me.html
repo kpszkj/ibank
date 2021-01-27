@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="css/me.css">
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/layer/layer.js"></script>
+		<script src="js/config/common.js"></script>
+		<script src="js/app.js"></script>
+
+		<!--angularjs组件-->
+		<script src="plugins/angularjs/angular.min.js"></script>
+		<!--引入baseApp-->
+		<script src="js/angular/app/baseApp.js"></script>
+		<script src="js/angular/app/baseController.js"></script>
+		<script src="js/angular/buser/buserService.js"></script>
+		<script src="js/angular/buser/meController.js"></script>
+	</head>
+
+	<body ng-app="fhxy" ng-controller="meController" ng-init="init()">
+
+		<div id="all">
+
+			<!-- 头部 -->
+			<div class="head">
+				<span class="title">个人信息</span>
+			</div>
+
+			<div style="height: 40px;"></div>
+
+			<div class="main" id="main" style="display: none;">
+
+				<div class="session" style="margin-top: 50px;">
+					<img src="{{entity.headportrait}}" class="img"  ng-click='logout()'/>
+					<div class="name">
+						{{entity.nickname}}
+					</div>
+					<div class="title">
+						丨余额
+					</div>
+					<div style="text-align: center;">
+						<div class="des">
+							{{entity.score}}
+						</div>
+					</div>
+					<div class="title">
+						丨伴侣
+					</div>
+					<div style="text-align: center;">
+						<div class="des cdes" ng-click="ta()">
+							{{cEntity.nickname}}
+						</div>
+					</div>
+
+					<div class="title">
+						丨个人宣言
+					</div>
+					<div class="introduction" onclick="openView('buserEditor.html','pop-in')">
+						{{entity.declaration}}
+					</div>
+
+				</div>
+
+
+
+			</div>
+
+			<div class="foot">
+				<div class="nav">
+					<div class="item" onclick="location.href='index.html'">
+						<img src="img/sy.jpg" />
+						<div>首页</div>
+					</div>
+					<div class="item" onclick="location.href='record.html'">
+						<img src="img/zd.jpg" />
+						<div>账单</div>
+					</div>
+					<div class="active" onclick="location.href='me.html'">
+						<img src="img/wd1.jpg" />
+						<div>我的</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		
+		<div class="load" id="load">
+			<img src="img/load1.gif" />
+		</div>
+	</body>
+</html>

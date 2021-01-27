@@ -32,24 +32,64 @@
 
 			<div style="height: 40px;"></div>
 
-			<div class="main" id="main">
+			<div class="main" id="main" style="display: none;">
 
 				<div class="session">
 					<div class="title">
-						我的余额
+						爱情币
 					</div>
 					<div class="des">
-						{{entity.score}}
+						{{entity.nickname}}：{{entity.score}}
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						{{cEntity.nickname}}：{{cEntity.score}}
+						<!-- <br />
+						总余额：{{entity.score+cEntity.score}} -->
 					</div>
 				</div>
 
 				<div class="session">
 					<div class="title">
-						他的余额
+						感情状态
 					</div>
-					<div class="des">
-						{{cEntity.score}}
+
+					<div class="des" ng-if="entity.score+cEntity.score<0">
+						lv.0&nbsp;&nbsp;&nbsp;&nbsp;视若路人、不如分手
 					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=0&&entity.score+cEntity.score<1000">
+						lv.1&nbsp;&nbsp;&nbsp;&nbsp;两小无猜
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=1000&&entity.score+cEntity.score<2000">
+						lv.2&nbsp;&nbsp;&nbsp;&nbsp;心有灵犀
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=2000&&entity.score+cEntity.score<3000">
+						lv.3&nbsp;&nbsp;&nbsp;&nbsp;亲密无间
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=3000&&entity.score+cEntity.score<4000">
+						lv.4&nbsp;&nbsp;&nbsp;&nbsp;卿卿我我
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=4000&&entity.score+cEntity.score<5000">
+						lv.5&nbsp;&nbsp;&nbsp;&nbsp;如胶似漆
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=5000&&entity.score+cEntity.score<6000">
+						lv.6&nbsp;&nbsp;&nbsp;&nbsp;心心相印
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=6000&&entity.score+cEntity.score<7000">
+						lv.7&nbsp;&nbsp;&nbsp;&nbsp;情比金坚
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=7000&&entity.score+cEntity.score<8000">
+						lv.8&nbsp;&nbsp;&nbsp;&nbsp;天长地久
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=8000&&entity.score+cEntity.score<9000">
+						lv.9&nbsp;&nbsp;&nbsp;&nbsp;比翼齐飞
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=9000&&entity.score+cEntity.score<10000">
+						lv.10&nbsp;&nbsp;&nbsp;&nbsp;矢志不渝
+					</div>
+					<div class="des" ng-if="entity.score+cEntity.score>=10000">
+						lv.MAX&nbsp;&nbsp;&nbsp;&nbsp;执子之手、与子偕老、速速结婚
+					</div>
+
+
 				</div>
 
 				<div class="session">
@@ -63,7 +103,7 @@
 						<div>如胶似漆</div>
 					</div>
 
-					<div class="action" onclick="openView('recordAdd.html','pop-in')">
+					<div class="action" onclick="openView('recordDelete.html','pop-in')">
 						<img src="img/a2.png">
 						<div>无言以对</div>
 					</div>
@@ -73,7 +113,7 @@
 						<div>心灵鸡汤</div>
 					</div>
 
-					<div class="action" ng-click='logout()'>
+					<div class="action"  ng-click='logout()' >
 						<img src="img/a4.png">
 						<div>敬请期待</div>
 					</div>
@@ -110,5 +150,6 @@
 		<div class="load" id="load">
 			<img src="img/load1.gif" />
 		</div>
+
 	</body>
 </html>
