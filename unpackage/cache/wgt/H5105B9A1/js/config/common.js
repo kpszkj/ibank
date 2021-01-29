@@ -10,17 +10,17 @@
     var ws = null,
         as = 'pop-in';
 
-    function plusReady() {
+    /* function plusReady() {
         ws = plus.webview.currentWebview();
         plus.key.addEventListener('backbutton', function () {
             back();
         }, false);
-    }
+    } */
 
     if (w.plus) {
         plusReady();
     } else {
-        document.addEventListener('plusready', plusReady, false);
+        //document.addEventListener('plusready', plusReady, false);
     }
     // DOMContentLoaded事件处理
     document.addEventListener('DOMContentLoaded', function () {

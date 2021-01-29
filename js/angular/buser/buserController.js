@@ -19,17 +19,14 @@ app.controller('buserController', function($scope, $controller, buserService) {
 		setTimeout(ws.show(), 500); //延迟创建子窗口避免影响窗口动画
 		//监听返回键
 		plus.key.addEventListener('backbutton', function() {
-			back();
+			/* 	return null; */
+			quit();
 		}, false);
 		$scope.initData();
 	}
 
 	// 判断扩展API是否准备，否则监听plusready事件
 	$scope.init = function() {
-		//取消浏览器的所有事件，使得active的样式在手机上正常生效
-		document.addEventListener('touchstart', function() {
-			return false;
-		}, true);
 		// 禁止选择
 		document.oncontextmenu = function() {
 			return false;
@@ -42,6 +39,8 @@ app.controller('buserController', function($scope, $controller, buserService) {
 	}
 
 	$scope.initData = function() {
+
+		//createDownload();
 		$scope.entity.token = plus.storage.getItem("token");
 		buserService.findOneByToken($scope.entity.token).success(function(rs) {
 			$scope.entity = rs;

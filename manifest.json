@@ -3,7 +3,7 @@
     "id" : "H5105B9A1", /*应用的标识*/
     "name" : "风花雪月", /*应用名称，程序桌面图标名称*/
     "version" : {
-        "name" : "1.0", /*应用版本名称*/
+        "name" : "1.1", /*应用版本名称*/
         "code" : "100"
     },
     "description" : "我们两个人的银行", /*应用描述信息*/
@@ -90,7 +90,7 @@
     "plus" : {
         "splashscreen" : {
             "autoclose" : true, /*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
-            "waiting" : true, /*是否在程序启动界面显示等待雪花，true表示显示，false表示不显示。*/
+            "waiting" : false, /*是否在程序启动界面显示等待雪花，true表示显示，false表示不显示。*/
             "delay" : 1500
         },
         "popGesture" : "close", /*设置应用默认侧滑返回关闭Webview窗口，"none"为无侧滑返回功能，"hide"为侧滑隐藏Webview窗口。参考http://ask.dcloud.net.cn/article/102*/
@@ -211,11 +211,12 @@
                 "android" : {
                     "mdpi" : "", /*普通屏启动图片，分辨率：240x282*/
                     "ldpi" : "", /*大屏启动图片，分辨率：320x442*/
-                    "hdpi" : "C:/Users/Administrator/Desktop/1.png", /*高分屏启动图片，分辨率：480x762*/
-                    "xhdpi" : "C:/Users/Administrator/Desktop/1.png", /*720P高分屏启动图片，分辨率：720x1242*/
-                    "xxhdpi" : "C:/Users/Administrator/Desktop/1.png" /*1080P高分屏启动图片，分辨率：1080x1882*/
+                    "hdpi" : "C:/Users/Administrator/Desktop/4-1.png", /*高分屏启动图片，分辨率：480x762*/
+                    "xhdpi" : "C:/Users/Administrator/Desktop/4-1.png", /*720P高分屏启动图片，分辨率：720x1242*/
+                    "xxhdpi" : "C:/Users/Administrator/Desktop/4-1.png" /*1080P高分屏启动图片，分辨率：1080x1882*/
                 },
-                "androidStyle" : "default"
+                "androidStyle" : "default",
+                "iosStyle" : "common"
             },
             "plugins" : {
                 "speech" : {

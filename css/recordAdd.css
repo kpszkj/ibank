@@ -75,6 +75,7 @@
 	border: none;
 	text-indent: 1em;
 	border: 2px solid #D9579B;
+	-webkit-user-select:text;
 }
 
 /* .session textarea::-webkit-input-placeholder {

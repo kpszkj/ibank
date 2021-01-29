@@ -87,11 +87,33 @@ function back() {
 	//ws.close();
 }
 
+//退出应用
+function quit() {
+	var quit = plus.storage.getItem("quitStatus");
+	//console.log(quit);
+	//console.log(quit == "1");
+	//layer.msg(quit);
+	if (quit == null || quit == "1") {
+		//console.log(quit);
+		layer.msg("再按一次返回退出");
+		plus.storage.setItem("quitStatus", "2");
+		setTimeout(function() {
+			plus.storage.setItem("quitStatus", "1");
+		}, 2000)
+		return null;
+	} else {
+		plus.storage.setItem("quitStatus", "1");
+		plus.runtime.quit();
+	}
+
+	return null;
+}
+
 function backRecord() {
 	ws = plus.webview.currentWebview();
 	var wvs = plus.webview.all();
 	for (var i = 0; i < wvs.length; i++) {
-		if(ws!=wvs[i]){
+		if (ws != wvs[i]) {
 			wvs[i].close();
 		}
 	}
@@ -104,7 +126,7 @@ function backMe() {
 	ws = plus.webview.currentWebview();
 	var wvs = plus.webview.all();
 	for (var i = 0; i < wvs.length; i++) {
-		if(ws!=wvs[i]){
+		if (ws != wvs[i]) {
 			wvs[i].close();
 		}
 	}
@@ -118,7 +140,7 @@ function backIndex() {
 	ws = plus.webview.currentWebview();
 	var wvs = plus.webview.all();
 	for (var i = 0; i < wvs.length; i++) {
-		if(ws!=wvs[i]){
+		if (ws != wvs[i]) {
 			wvs[i].close();
 		}
 	}
@@ -149,4 +171,48 @@ function closeLoad() {
 	$("#load").hide();
 	$("#all").show();
 	$("#main").show();
+}
+
+
+
+function createDownload(url) {
+	$("#update").show();
+	var dtask = plus.downloader.createDownload(url, {}, function(d,
+		status) {
+		// 下载完成
+		if (status == 200) {
+			/* var num = dtask.totalSize / 1024 / 1024;
+
+			var num1 = parseFloat(num).toFixed(2)
+
+			alert(num1); */
+			layer.msg("下载完成" + d.filename + "即将安装！");
+			setTimeout(function() {
+				clearInterval(a);
+				$("#update").hide();
+				plus.runtime.install(d.filename);
+			}, 1500)
+		} else {
+			console.log("Download failed: " + status);
+		}
+	});
+	//dtask.addEventListener("statechanged", onStateChanged, false);
+	dtask.start();
+	var a = setInterval(function() {
+		updateTask(dtask);
+	}, 50)
+	//alert(1)
+}
+
+function updateTask(task) {
+	$("#dSize").text(parseFloat(task.downloadedSize / 1024 / 1024).toFixed(2) + "MB");
+	$("#tSize").text(parseFloat(task.totalSize / 1024 / 1024).toFixed(2) + "MB");
+	var num = 180 * task.downloadedSize / task.totalSize;
+	//console.log(num);
+	document.getElementById("width").style.width = num + "px";
+}
+
+function toHref(url) {
+	plus.storage.setItem("quitStatus", "1");
+	location.href = url;
 }

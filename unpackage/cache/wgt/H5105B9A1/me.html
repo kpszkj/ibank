@@ -36,7 +36,7 @@
 			<div class="main" id="main" style="display: none;">
 
 				<div class="session" style="margin-top: 50px;">
-					<img src="{{entity.headportrait}}" class="img"  ng-click='logout()'/>
+					<img src="{{entity.headportrait}}" class="img" onclick="openView('buserEditor.html','pop-in')"/>
 					<div class="name">
 						{{entity.nickname}}
 					</div>
@@ -60,7 +60,7 @@
 					<div class="title">
 						丨个人宣言
 					</div>
-					<div class="introduction" onclick="openView('buserEditor.html','pop-in')">
+					<div class="introduction">
 						{{entity.declaration}}
 					</div>
 
@@ -72,15 +72,15 @@
 
 			<div class="foot">
 				<div class="nav">
-					<div class="item" onclick="location.href='index.html'">
+					<div class="item" onclick="toHref('index.html')">
 						<img src="img/sy.jpg" />
 						<div>首页</div>
 					</div>
-					<div class="item" onclick="location.href='record.html'">
+					<div class="item" onclick="toHref('record.html')">
 						<img src="img/zd.jpg" />
 						<div>账单</div>
 					</div>
-					<div class="active" onclick="location.href='me.html'">
+					<div class="active" onclick="toHref('me.html')">
 						<img src="img/wd1.jpg" />
 						<div>我的</div>
 					</div>

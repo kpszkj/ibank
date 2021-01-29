@@ -80,6 +80,7 @@ app.controller('recordDetailController', function($scope, $controller, recordSer
 		recordService.findOne(id, token).success(
 			function(response) {
 				$scope.entity = response;
+				$("#info").html($scope.entity.info);
 				closeLoad();
 			}
 		);

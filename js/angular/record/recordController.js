@@ -22,7 +22,7 @@ app.controller('recordController', function($scope, $controller, recordService) 
 		setTimeout(ws.show(), 500); //延迟创建子窗口避免影响窗口动画
 		//监听返回键
 		plus.key.addEventListener('backbutton', function() {
-			back();
+			quit();
 		}, false);
 		document.addEventListener("resume", function() {
 			//从后台切换到前台
@@ -73,7 +73,23 @@ app.controller('recordController', function($scope, $controller, recordService) 
 
 	$scope.initAdd = function() {
 		closeLoad();
+		//监听返回键
+
+		if (window.plus) {
+			plusReady();
+		} else {
+			document.addEventListener('plusready', addBack, false);
+		}
 	}
+
+	function addBack() {
+
+		plus.key.addEventListener('backbutton', function() {
+			/* 	return null; */
+			back();
+		}, false);
+	}
+
 
 
 	$scope.toDetail = function(id) {

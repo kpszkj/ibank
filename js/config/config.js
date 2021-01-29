@@ -24,7 +24,7 @@ function initWebView() {
 //打开新页面
 function openView(url, type) {
 	var nwv = createWithoutTitle(url, {
-		backButtonAutoControl: 'true',
+		backButtonAutoControl: 'true'
 	});
 	if (nwv != null) {
 		nwv.show(type, 500, null);

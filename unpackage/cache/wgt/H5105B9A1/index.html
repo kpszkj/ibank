@@ -12,6 +12,7 @@
 		<script src="js/layer/layer.js"></script>
 		<script src="js/config/common.js"></script>
 		<script src="js/app.js"></script>
+		<script src="js/update.js"></script>
 
 		<!--angularjs组件-->
 		<script src="plugins/angularjs/angular.min.js"></script>
@@ -113,7 +114,7 @@
 						<div>心灵鸡汤</div>
 					</div>
 
-					<div class="action">
+					<div class="action" ng-click='logout()'>
 						<img src="img/a4.png">
 						<div>敬请期待</div>
 					</div>
@@ -125,17 +126,17 @@
 			<div class="foot">
 				<div class="nav">
 
-					<div class="active" onclick="location.href='index.html'">
+					<div class="active" onclick="toHref('index.html')">
 						<img src="img/sy1.jpg" />
 						<div>首页</div>
 					</div>
 
-					<div class="item" onclick="location.href='record.html'">
+					<div class="item" onclick="toHref('record.html')">
 						<img src="img/zd.jpg" />
 						<div>账单</div>
 					</div>
 
-					<div class="item" onclick="location.href='me.html'">
+					<div class="item" onclick="toHref('me.html')">
 						<img src="img/wd.jpg" />
 						<div>我的</div>
 					</div>
@@ -147,8 +148,25 @@
 		</div>
 
 
-		<div class="load" id="load">
+		<div class="load" id="load" style="display: none;">
 			<img src="img/load1.gif" />
+		</div>
+
+		<div id="update" style="display: none;width: 200px;height: 50px;position: fixed;top: 50%;left: 50%;
+		margin-left: -100px;margin-top: -25px;background: #D9579B;color: #FFFFFF;
+		text-align: center;padding: 5px;border-radius:20px ;line-height: 25px;font-size: 12px;">
+			正在下载：
+			<span id="dSize">
+				0
+			</span>/
+			<span id="tSize">
+				100
+			</span>
+			<div style="width: 180px;height: 10px; background: #FFFFFF;margin-left: 10px;margin-top: 7px;border-radius: 5px;">
+				<div id="width" style="width: 0px;height: 10px; background: #ffb3a7;border-radius: 5px;">
+				</div>
+			</div>
+
 		</div>
 
 	</body>
