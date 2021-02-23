@@ -82,6 +82,10 @@ app.controller('recordDetailController', function($scope, $controller, recordSer
 				$scope.entity = response;
 				$("#info").html($scope.entity.info);
 				closeLoad();
+				setTimeout(function(){
+					
+					has_scrollbar();
+				},200)
 			}
 		);
 	}

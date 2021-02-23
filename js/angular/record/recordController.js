@@ -137,6 +137,13 @@ app.controller('recordController', function($scope, $controller, recordService) 
 		var token = plus.storage.getItem("token");
 		$scope.recordEntity.token1 = token;
 		$scope.recordEntity.type = 1;
+		var info = $("#info").val();
+		if (isEmpty(info)) {
+			layer.msg("原因不能为空哦！");
+			closeLoad();
+			return;
+		}
+		$scope.recordEntity.info = info;
 		if ($scope.recordEntity.id != null) { //如果有ID
 			serviceObject = recordService.update($scope.recordEntity); //修改
 		} else {
@@ -150,7 +157,7 @@ app.controller('recordController', function($scope, $controller, recordService) 
 					//$scope.reloadList();
 					layer.msg(response.message);
 					setTimeout(function() {
-						backIndex();
+						backRecord();
 					}, 1000)
 					//重新加载
 				} else {
@@ -167,6 +174,13 @@ app.controller('recordController', function($scope, $controller, recordService) 
 		var token = plus.storage.getItem("token");
 		$scope.recordEntity.token1 = token;
 		$scope.recordEntity.type = 0;
+		var info = $("#info").val();
+		if (isEmpty(info)) {
+			layer.msg("原因不能为空哦！");
+			closeLoad();
+			return;
+		}
+		$scope.recordEntity.info = info;
 		if ($scope.recordEntity.id != null) { //如果有ID
 			serviceObject = recordService.update($scope.recordEntity); //修改
 		} else {
@@ -180,7 +194,7 @@ app.controller('recordController', function($scope, $controller, recordService) 
 					//$scope.reloadList();
 					layer.msg(response.message);
 					setTimeout(function() {
-						backIndex();
+						backRecord();
 					}, 1000)
 					//重新加载
 				} else {

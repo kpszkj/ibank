@@ -93,10 +93,19 @@
 						原因
 					</div>
 
-					<div>
+					<div onclick="getValue()">
 						<!-- <textarea>此处输入原因</textarea> -->
-						<textarea id="info" rows="2" cols="20" placeholder="小主,o(*￣▽￣*)ブ,在此处填写原因." ng-model="recordEntity.info" style="-webkit-user-select: all;">
+						<textarea class="session_textarea1" id="info" rows="2" cols="20" placeholder="小主这么开心,o(*￣▽￣*)ブ,给Ta多加些分吧." ng-model="recordEntity.info">
 						</textarea>
+					</div>
+
+					<div style="text-align: center;">
+						<div class="infoTip" onclick="addContent()">
+							粘贴
+						</div>
+						<div class="infoTip" onclick="delContent()">
+							清空
+						</div>
 					</div>
 
 				</div>

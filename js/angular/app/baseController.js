@@ -61,7 +61,8 @@ app.controller('baseController', function($scope) {
 
 	//判断对象是否为空
 	isEmpty = function(obj) {
-		if (null == obj || angular.equals(null, obj) || angular.equals({}, obj) || angular.equals([], obj)) {
+		if (null == obj || angular.equals(null, obj) || angular.equals({}, obj) || angular.equals([], obj) || obj == "" ||
+			obj == '') {
 			return true;
 		} else {
 			return false;

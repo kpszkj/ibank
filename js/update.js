@@ -111,7 +111,7 @@
 				return;
 			}
 			// 判断是否需要升级
-			alert(compareVersion(curVer, srvVer));
+			// alert(compareVersion(curVer, srvVer));
 			if (compareVersion(curVer, srvVer)) {
 				// 提示用户是否升级
 				plus.nativeUI.confirm(inf.note, function(i) {
@@ -175,8 +175,8 @@
 		if (!ov || !nv || ov == "" || nv == "") {
 			return false;
 		}
-		alert(JSON.stringify(ov))
-		alert(JSON.stringify(nv))
+		// alert(JSON.stringify(ov))
+		// alert(JSON.stringify(nv))
 		var b = false,
 			ova = ov.split(".", 4),
 			nva = nv.split(".", 4);

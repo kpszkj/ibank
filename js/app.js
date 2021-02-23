@@ -216,3 +216,40 @@ function toHref(url) {
 	plus.storage.setItem("quitStatus", "1");
 	location.href = url;
 }
+
+
+function getValue() {
+	if (plus.os.name == 'iOS') {
+		var UIPasteboard = plus.ios.importClass("UIPasteboard");
+		var generalPasteboard = UIPasteboard.generalPasteboard();
+		var value = generalPasteboard.valueForPasteboardType("public.utf8-plain-text");
+		// value就是粘贴板的值  
+		return value;
+	} else if (plus.os.name == 'Android') {
+		var Context = plus.android.importClass("android.content.Context");
+		var main = plus.android.runtimeMainActivity();
+		var clip = main.getSystemService(Context.CLIPBOARD_SERVICE);
+		var value = plus.android.invoke(clip, "getText");
+		// value就是粘贴板的值  
+		return value;
+	}
+}
+
+function addContent() {
+	var content = getValue();
+	$("#info").val(content);
+}
+
+function delContent() {
+	$("#info").val("");
+}
+
+function has_scrollbar() {
+	const elem = document.getElementById("info");
+	if (elem.clientHeight < elem.scrollHeight) {
+		//alert("The element has a vertical scrollbar!");
+		$("#infoTip").css("visibility", "visible");
+	} else {
+		//alert("The element doesn't have a vertical scrollbar.");
+	}
+}

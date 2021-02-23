@@ -3,8 +3,8 @@
     "id" : "H5105B9A1", /*应用的标识*/
     "name" : "风花雪月", /*应用名称，程序桌面图标名称*/
     "version" : {
-        "name" : "1.1", /*应用版本名称*/
-        "code" : "100"
+        "name" : "2.0", /*应用版本名称*/
+        "code" : 200
     },
     "description" : "我们两个人的银行", /*应用描述信息*/
     "icons" : {
@@ -211,9 +211,9 @@
                 "android" : {
                     "mdpi" : "", /*普通屏启动图片，分辨率：240x282*/
                     "ldpi" : "", /*大屏启动图片，分辨率：320x442*/
-                    "hdpi" : "C:/Users/Administrator/Desktop/4-1.png", /*高分屏启动图片，分辨率：480x762*/
-                    "xhdpi" : "C:/Users/Administrator/Desktop/4-1.png", /*720P高分屏启动图片，分辨率：720x1242*/
-                    "xxhdpi" : "C:/Users/Administrator/Desktop/4-1.png" /*1080P高分屏启动图片，分辨率：1080x1882*/
+                    "hdpi" : "C:/Users/Administrator/Desktop/data/api/fhxy/4-1.png", /*高分屏启动图片，分辨率：480x762*/
+                    "xhdpi" : "C:/Users/Administrator/Desktop/data/api/fhxy/4-1.png", /*720P高分屏启动图片，分辨率：720x1242*/
+                    "xxhdpi" : "C:/Users/Administrator/Desktop/data/api/fhxy/4-1.png" /*1080P高分屏启动图片，分辨率：1080x1882*/
                 },
                 "androidStyle" : "default",
                 "iosStyle" : "common"
